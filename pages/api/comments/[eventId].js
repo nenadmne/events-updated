@@ -32,6 +32,15 @@ const handler = async (req, res) => {
     const result = await db.collection("comment").insertOne(comment);
 
     res.status(200).json({ message: "Successfully added comment!", result });
+  } else if (req.method === "GET") {
+    const db = client.db();
+    const result = await db
+      .collection("comment")
+      .find()
+      .sort({ _id: -1 })
+      .toArray();
+
+    res.status(200).json({ message: "Successfully got all comments!", result });
   }
 
   client.close();
