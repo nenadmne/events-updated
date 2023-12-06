@@ -12,7 +12,7 @@ function NewsletterRegistration() {
       id: Math.random(),
     };
 
-    const response = await fetch("api/newsletter", {
+    const response = await fetch("/api/newsletter", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

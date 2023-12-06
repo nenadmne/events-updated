@@ -14,13 +14,15 @@ function Comments(props) {
   }
 
   const addCommentHandler = async (commentData) => {
-    await fetch(`api/comments/${eventId}`, {
+    const response = await fetch(`/api/comments/${eventId}`, {
       method: "POST",
       body: JSON.stringify(commentData),
       headers: {
-        "Content-Type": "application.json",
+        "Content-Type": "application/json",
       },
     });
+    const responseData = await response.json();
+    console.log(responseData);
   };
 
   return (
