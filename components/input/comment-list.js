@@ -13,13 +13,12 @@ function CommentList({ eventId }) {
     addCommentHandler();
   }, []);
 
-  console.log(data);
   return (
     <ul className={classes.comments}>
       {/* Render list of comments - fetched from API */}
       {data &&
         data.result.map((item) => (
-          <li>
+          <li key={item._id}>
             <p>{item.text}</p>
             <div>
               By <address>{item.name}</address>
